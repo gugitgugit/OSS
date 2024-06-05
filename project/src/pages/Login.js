@@ -1,18 +1,15 @@
 import { useNavigate } from "react-router-dom";
-import NavBarGuest from "../Layout/NavBarGuest";
 import styled from "styled-components";
 
 const Login = () => {
   const navigate = useNavigate();
 
-  const onClickBtn = (e) => {
-    e.prevenDefault();
-    navigate("");
+  const onClickLoginBtn = () => {
+    navigate("/signup");
   };
 
   return (
     <Box>
-      <NavBarGuest />
       <MainBox>
         <LoginBox>
           <LoginTitle>LOGIN</LoginTitle>
@@ -35,7 +32,16 @@ const Login = () => {
             <InputBox type="password" placeholder="PW" />
           </LoginSmallBox>
           <Hr2 />
-          <LoginBtn onClick={onClickBtn}>LOGIN</LoginBtn>
+          <BtnBox>
+            <SignupBtn onClick={onClickLoginBtn}>Sign Up</SignupBtn>
+            <LoginBtn
+              onClick={() => {
+                navigate("/home");
+              }}
+            >
+              LOGIN
+            </LoginBtn>
+          </BtnBox>
         </LoginBox>
       </MainBox>
     </Box>
@@ -49,8 +55,8 @@ const Box = styled.div`
 `;
 
 const MainBox = styled.div`
-  height: 80%;
-  margin: auto;
+  height: 50%;
+  margin: 30px auto;
   display: flex;
   align-items: center;
 `;
@@ -117,13 +123,25 @@ const InputBox = styled.input`
   border: none;
 `;
 
+const BtnBox = styled.div``;
+
+const SignupBtn = styled.button`
+  width: 150px;
+  font-size: 20px;
+  padding: 10px 20px;
+  background-color: white;
+  border: 2px solid #ff99cc;
+  border-radius: 50px;
+  margin-top: 10px;
+  color: #ff99cc;
+`;
+
 const LoginBtn = styled.button`
-  margin: auto;
   width: 150px;
   font-size: 20px;
   padding: 10px 20px;
   background-color: #ff99cc;
-  border: none;
+  border: 2px solid #ff99cc;
   border-radius: 50px;
   margin-top: 10px;
   color: white;

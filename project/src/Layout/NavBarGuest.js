@@ -3,10 +3,12 @@ import styled from "styled-components";
 const NavBarGuest = () => {
   return (
     <Box>
-      <TitleBox>
-        <Logo src="logo.png" />
-        <Title>Food Track</Title>
-      </TitleBox>
+      <NavBarBox>
+        <TitleBox>
+          <Logo src="logo.png" />
+          <Title>Food Track</Title>
+        </TitleBox>
+      </NavBarBox>
       <WhiteHr />
     </Box>
   );
@@ -14,12 +16,17 @@ const NavBarGuest = () => {
 
 const Box = styled.div`
   background-color: #ff99cc;
-  margin: 0px;
-  padding: 10px;
-  padding-bottom: 20px;
-  height: 50px;
+  padding-bottom: 5px;
 `;
 
+const NavBarBox = styled.div`
+  background-color: #ff99cc;
+  padding: 10px;
+  padding-bottom: 0px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+`;
 const TitleBox = styled.div`
   display: flex;
   height: 100%;
@@ -40,7 +47,8 @@ const Title = styled.div`
 
 const WhiteHr = styled.hr`
   background-color: white;
-  height: 1px;
+  height: 2px;
+  border: none;
 `;
 
 export default NavBarGuest;

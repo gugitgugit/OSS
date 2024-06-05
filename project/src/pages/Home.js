@@ -1,5 +1,6 @@
+import KakaoMap from "../API/KakaoMap";
 const Home = () => {
-  return <h1>배그 ㄱㄱ??</h1>;
+  return <KakaoMap />;
 };
 
 export default Home;
