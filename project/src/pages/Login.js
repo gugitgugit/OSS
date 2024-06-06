@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import styled from "styled-components";
+import NavBarGuest from "../Layout/NavBarGuest";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -35,6 +36,7 @@ const Login = () => {
 
   return (
     <Box>
+      <NavBarGuest />
       <MainBox>
         <LoginBox onSubmit={tryLogin}>
           <LoginTitle>LOGIN</LoginTitle>

@@ -10,18 +10,24 @@ const KakaoMap = ({ basketList, setBasketList }) => {
       id: 1,
       title: "영대 붕어빵",
       latlng: new kakao.maps.LatLng(35.837006324170936, 128.75289610888356),
+      time: "08:00 ~ 20:00",
+      call: "010-xxxx-xxxx",
       clicked: false,
     },
     {
       id: 2,
       title: "맛있는 붕어빵",
       latlng: new kakao.maps.LatLng(35.835990760914, 128.75178371956795),
+      time: "12:00 ~ 18:00",
+      call: "010-oooo-oooo",
       clicked: false,
     },
     {
       id: 3,
       title: "4번 출구 붕어빵",
       latlng: new kakao.maps.LatLng(35.83653309414487, 128.7538318814868),
+      time: "16:00 ~ 02:00",
+      call: "010-ㅁㅁㅁㅁ-ㅁㅁㅁㅁ",
       clicked: false,
     },
   ];
@@ -70,6 +76,8 @@ const KakaoMap = ({ basketList, setBasketList }) => {
             id: markerPositions[i].id,
             title: markerPositions[i].title,
             latlng: markerPositions[i].latlng,
+            time: markerPositions[i].time,
+            call: markerPositions[i].call,
             clicked: true,
           },
         ]);
@@ -88,6 +96,8 @@ const KakaoMap = ({ basketList, setBasketList }) => {
               id={el.id}
               title={el.title}
               latlng={el.latlng}
+              time={el.time}
+              call={el.call}
               clicked={el.clicked}
               markerPositions={markerPositions}
               setMarkerPositions={setMarkerPositions}

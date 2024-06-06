@@ -29,7 +29,6 @@ const Basket = ({ basketList, setBasketList }) => {
           </div>
         );
       })}
-
       <Hr />
       <BasketTitle>총액 : {totalPrice} 원</BasketTitle>
     </Box>

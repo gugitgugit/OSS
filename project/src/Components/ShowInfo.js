@@ -29,6 +29,8 @@ const ShowInfo = ({
   id,
   title,
   latlng,
+  time,
+  call,
   clicked,
   markerPositions,
   setMarkerPositions,
@@ -43,6 +45,8 @@ const ShowInfo = ({
         id: id,
         title: title,
         latlng: latlng,
+        time: time,
+        call: call,
         clicked: false,
       },
     ]);
@@ -56,6 +60,16 @@ const ShowInfo = ({
             <Title>{title}</Title>
             <CloseBtn onClick={onClickClosetBtn}>닫기</CloseBtn>
           </TitleBox>
+          <DetailBox>
+            <SmallDetailBox>
+              <DetailIcon src="clock.svg" alt="영업 시간" />
+              <Detail>{time}</Detail>
+            </SmallDetailBox>
+            <SmallDetailBox>
+              <DetailIcon src="call.svg" alt="전화 번호" />
+              <Detail>{call}</Detail>
+            </SmallDetailBox>
+          </DetailBox>
           <Hr />
           {storeList.map((el) => {
             return (
@@ -93,6 +107,7 @@ const TitleBox = styled.div`
   padding: 5px;
   align-items: center;
 `;
+
 const CloseBtn = styled.button`
   width: 75px;
   height: 40px;
@@ -106,6 +121,33 @@ const CloseBtn = styled.button`
     background-color: #ff99cc;
     color: white;
   }
+`;
+
+const DetailBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+`;
+
+const SmallDetailBox = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const Detail = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  color: gray;
+`;
+
+const DetailIcon = styled.img`
+  width: 30px;
+  height: 30px;
 `;
 
 const Title = styled.div`

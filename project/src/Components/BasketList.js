@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const BasketList = ({
-  index,
   id,
   title,
   price1,
