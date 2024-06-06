@@ -23,7 +23,7 @@ const NavBar = () => {
           <Logo src="logo.png" />
           <Title>Food Track</Title>
         </TitleBox>
-        <HomeBtn onClick={onClickHomeBtn}>Home</HomeBtn>
+        <HomeBtn onClick={onClickHomeBtn}>지도 보기</HomeBtn>
         <UserBox>
           <BasketBtn onClick={onClickBasketBtn}>
             <img src="basket.svg" alt="장바구니" />
@@ -104,10 +104,12 @@ const BasketBtn = styled.button`
 
 const LogOutBtn = styled.button`
   height: 50px;
+  width: 100px;
   background-color: #ff99cc;
   border: none;
   display: flex;
   align-items: center;
+  justify-content: center;
   font-size: 20px;
   color: white;
   font-weight: bold;

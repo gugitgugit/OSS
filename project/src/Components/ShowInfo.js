@@ -34,8 +34,6 @@ const ShowInfo = ({
   setMarkerPositions,
   basketList,
   setBasketList,
-  count,
-  setCount,
 }) => {
   const onClickClosetBtn = (e) => {
     const new_MarkerPositions = markerPositions.filter((el) => el.id !== id);
@@ -70,8 +68,6 @@ const ShowInfo = ({
                 img={el.img}
                 basketList={basketList}
                 setBasketList={setBasketList}
-                count={count}
-                setCount={setCount}
               />
             );
           })}

@@ -4,7 +4,7 @@ import ShowInfo from "../Components/ShowInfo";
 
 const { kakao } = window;
 
-const KakaoMap = ({ basketList, setBasketList, count, setCount }) => {
+const KakaoMap = ({ basketList, setBasketList }) => {
   const init = [
     {
       id: 1,
@@ -93,8 +93,6 @@ const KakaoMap = ({ basketList, setBasketList, count, setCount }) => {
               setMarkerPositions={setMarkerPositions}
               basketList={basketList}
               setBasketList={setBasketList}
-              count={count}
-              setCount={setCount}
             />
           );
         })}

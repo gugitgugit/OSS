@@ -7,11 +7,7 @@ import Home from "./pages/Home";
 import Basket from "./pages/Basket";
 
 function App() {
-  const [basketList, setBasketList] = useState([
-    { id: 1, title: "test", price: "test원 입니다." },
-  ]);
-
-  const [count, setCount] = useState(1);
+  const [basketList, setBasketList] = useState([]);
 
   return (
     <BrowserRouter>
@@ -23,23 +19,13 @@ function App() {
           <Route
             path="/home"
             element={
-              <Home
-                basketList={basketList}
-                setBasketList={setBasketList}
-                count={count}
-                setCount={setCount}
-              />
+              <Home basketList={basketList} setBasketList={setBasketList} />
             }
           />
           <Route
             path="/basket"
             element={
-              <Basket
-                basketList={basketList}
-                setBasketList={setBasketList}
-                count={count}
-                setCount={setCount}
-              />
+              <Basket basketList={basketList} setBasketList={setBasketList} />
             }
           />
         </Route>

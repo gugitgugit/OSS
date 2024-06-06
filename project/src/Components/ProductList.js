@@ -8,17 +8,9 @@ const ProductList = ({
   img,
   basketList,
   setBasketList,
-  count,
-  setCount,
 }) => {
   const appendBasket = () => {
     const new_BasketList = basketList.filter((el) => el.id !== id);
-    const find_BasketList = basketList.find((el) => el.id === id);
-    if (find_BasketList !== undefined) {
-      setCount(find_BasketList.count + 1);
-      setCount(count + 1);
-    } else setCount(1);
-
     setBasketList([
       ...new_BasketList,
       {
@@ -27,10 +19,10 @@ const ProductList = ({
         price1: price1,
         price3: price3,
         img: img,
-        count: count,
+        count: 1,
       },
     ]);
-    alert("담겼습니다!");
+    alert("상품을 담았습니다.");
   };
 
   return (
@@ -42,7 +34,7 @@ const ProductList = ({
         <Price>1개 : {price1} 원</Price>
         <Price>3개 : {price3} 원</Price>
         <ButtonBox>
-          <BasketBtn onClick={appendBasket}>장바구니에 1개 담기</BasketBtn>
+          <BasketBtn onClick={appendBasket}>장바구니에 담기</BasketBtn>
         </ButtonBox>
       </InfoBox>
     </Box>
