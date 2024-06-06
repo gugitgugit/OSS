@@ -1,7 +1,16 @@
-const Basket = () => {
+const Basket = ({ title, basketList, setBasketList, count, setCount }) => {
   return (
     <div>
-      <h1>Basket Page</h1>
+      {basketList.map((el) => {
+        return (
+          <div>
+            <div>{el.title}</div>
+            <div>{el.price1}</div>
+            <div>{el.price3}</div>
+            <div>{el.count}</div>
+          </div>
+        );
+      })}
     </div>
   );
 };

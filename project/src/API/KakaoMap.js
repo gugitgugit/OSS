@@ -4,7 +4,7 @@ import ShowInfo from "../Components/ShowInfo";
 
 const { kakao } = window;
 
-const KakaoMap = () => {
+const KakaoMap = ({ basketList, setBasketList, count, setCount }) => {
   const init = [
     {
       id: 1,
@@ -32,11 +32,11 @@ const KakaoMap = () => {
     const container = document.getElementById("map");
     const options = {
       center: new kakao.maps.LatLng(35.836798938474004, 128.75352233805881),
-      level: 3,
+      level: 2,
     };
     const map = new kakao.maps.Map(container, options);
 
-    const imageSize = new kakao.maps.Size(35, 50);
+    const imageSize = new kakao.maps.Size(50, 70);
     const markerImage = new kakao.maps.MarkerImage("marker.png", imageSize);
 
     for (let i = 0; i < markerPositions.length; i++) {
@@ -80,22 +80,44 @@ const KakaoMap = () => {
   return (
     <Box>
       <Map id="map"></Map>
-      {markerPositions.map((el) => {
-        return <ShowInfo key={el.id} title={el.title} clicked={el.clicked} />;
-      })}
+      <InfoBox>
+        {markerPositions.map((el) => {
+          return (
+            <ShowInfo
+              key={el.id}
+              id={el.id}
+              title={el.title}
+              latlng={el.latlng}
+              clicked={el.clicked}
+              markerPositions={markerPositions}
+              setMarkerPositions={setMarkerPositions}
+              basketList={basketList}
+              setBasketList={setBasketList}
+              count={count}
+              setCount={setCount}
+            />
+          );
+        })}
+      </InfoBox>
     </Box>
   );
 };
 
 const Box = styled.div`
-  width: 150vh;
+  width: 100%;
   height: 100vh;
   display: flex;
 `;
 
 const Map = styled.div`
-  width: 100%;
+  width: 75%;
   height: 100%;
+`;
+
+const InfoBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 25%;
 `;
 
 export default KakaoMap;

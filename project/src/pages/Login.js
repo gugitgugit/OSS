@@ -1,17 +1,42 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import styled from "styled-components";
 
 const Login = () => {
   const navigate = useNavigate();
 
-  const onClickLoginBtn = () => {
-    navigate("/signup");
+  const dataBase = [{ id: 1, user_id: "구준혁", user_pw: "password" }];
+
+  const [inputId, setInputId] = useState("");
+  const [inputPw, setInputPw] = useState("");
+
+  const handleInputId = (e) => {
+    setInputId(e.target.value);
+  };
+
+  const handleInputPw = (e) => {
+    setInputPw(e.target.value);
+  };
+
+  const tryLogin = (e) => {
+    e.preventDefault();
+    let success = false;
+    dataBase.map((el) => {
+      if (inputId === el.user_id && inputPw === el.user_pw) {
+        navigate("/home");
+        success = true;
+      }
+      return true;
+    });
+    if (success === false) alert("ID 나 PW가 맞지 않습니다.");
+    setInputId("");
+    setInputPw("");
   };
 
   return (
     <Box>
       <MainBox>
-        <LoginBox>
+        <LoginBox onSubmit={tryLogin}>
           <LoginTitle>LOGIN</LoginTitle>
           <Hr1 />
           <LogoBox>
@@ -24,23 +49,26 @@ const Login = () => {
           </LogoBox>
           <LoginSmallBox>
             <LoginImg src="user.svg" />
-            <InputBox type="text" placeholder="ID" />
+            <InputBox
+              type="text"
+              placeholder="ID"
+              onChange={handleInputId}
+              value={inputId}
+            />
           </LoginSmallBox>
           <Hr2 />
           <LoginSmallBox>
             <LoginImg src="lock.svg" />
-            <InputBox type="password" placeholder="PW" />
+            <InputBox
+              type="password"
+              placeholder="PW"
+              onChange={handleInputPw}
+              value={inputPw}
+            />
           </LoginSmallBox>
           <Hr2 />
           <BtnBox>
-            <SignupBtn onClick={onClickLoginBtn}>Sign Up</SignupBtn>
-            <LoginBtn
-              onClick={() => {
-                navigate("/home");
-              }}
-            >
-              LOGIN
-            </LoginBtn>
+            <LoginBtn type="submit">LOGIN</LoginBtn>
           </BtnBox>
         </LoginBox>
       </MainBox>
@@ -123,17 +151,8 @@ const InputBox = styled.input`
   border: none;
 `;
 
-const BtnBox = styled.div``;
-
-const SignupBtn = styled.button`
-  width: 150px;
-  font-size: 20px;
-  padding: 10px 20px;
-  background-color: white;
-  border: 2px solid #ff99cc;
-  border-radius: 50px;
-  margin-top: 10px;
-  color: #ff99cc;
+const BtnBox = styled.div`
+  margin: auto;
 `;
 
 const LoginBtn = styled.button`
