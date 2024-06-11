@@ -1,4 +1,4 @@
-### Food Track
+<center>Food Track</center>
 
 ## 접속 방법
 #### 1. VSCode에서 Terminal을 연다.
